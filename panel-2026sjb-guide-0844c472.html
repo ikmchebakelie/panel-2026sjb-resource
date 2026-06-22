@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从球场到日常 · 世界杯笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a2e35;
+      line-height: 1.7;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 36px;
+      box-shadow: 0 10px 30px rgba(20, 70, 80, 0.06);
+      padding: 2.5rem 2rem 3.5rem;
+    }
+
+    /* 网格卡片背景 */
+    .page {
+      background-image:
+        linear-gradient(rgba(14, 121, 128, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 121, 128, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #e2f0f2;
+      color: #0f6b73;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #bddadc;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #0b3b42;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: #2f5b63;
+      background: #ecf6f8;
+      padding: 1rem 1.5rem;
+      border-radius: 30px;
+      margin: 1.8rem 0 2.5rem;
+      border-left: 5px solid #249ba8;
+      line-height: 1.6;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2.2rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(0, 40, 45, 0.05);
+      border: 1px solid #d6e8ea;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #249ba8;
+      box-shadow: 0 8px 24px rgba(14, 121, 128, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #11555e;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3::before {
+      content: "⚽";
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+    }
+
+    .card p {
+      color: #2d4e55;
+      font-size: 0.98rem;
+    }
+
+    .quote-box {
+      background: #e3f3f5;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 2rem;
+      border-left: 6px solid #249ba8;
+      font-style: normal;
+    }
+
+    .quote-box p {
+      font-size: 1.1rem;
+      color: #0c4149;
+      font-weight: 450;
+    }
+
+    .quote-box .source {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #2a7a84;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .body-text {
+      margin: 2rem 0;
+    }
+
+    .body-text p {
+      margin-bottom: 1.3rem;
+      color: #173f47;
+    }
+
+    .body-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-link {
+      background: #f0f9fb;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      color: #0b6b76;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid #249ba8;
+      transition: background 0.15s;
+    }
+
+    .highlight-link:hover {
+      background: #d8eef2;
+    }
+
+    .faq-mini {
+      margin-top: 2.8rem;
+      padding-top: 2rem;
+      border-top: 2px dashed #b4d5d9;
+    }
+
+    .faq-mini details {
+      margin-bottom: 1rem;
+      border-radius: 20px;
+      background: #f6fbfc;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #cde0e2;
+      transition: 0.1s;
+    }
+
+    .faq-mini details[open] {
+      background: #edf6f8;
+      border-color: #249ba8;
+    }
+
+    .faq-mini summary {
+      font-weight: 600;
+      color: #11555e;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+    }
+
+    .faq-mini p {
+      margin-top: 0.6rem;
+      color: #1c4952;
+    }
+
+    .visit-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #1b525c;
+      background: #ebf4f6;
+      padding: 1.2rem 1.5rem;
+      border-radius: 50px;
+      border: 1px solid #bcd7da;
+    }
+
+    .visit-note a {
+      color: #0b5f69;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #249ba8;
+    }
+
+    .visit-note a:hover {
+      color: #063a41;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #63858b;
+      text-align: center;
+      border-top: 1px solid #d7e6e8;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 1.5rem 1.2rem 2.5rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .lead {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero-tag">⚽ 2026 · 夏日回声</div>
+
+    <h1>世界杯与周末的叙事</h1>
+
+    <div class="lead">
+      四年一次的盛事，不只是一座奖杯的旅程。它也是城市街角的热气、深夜的惊呼，以及邻居阳台上飘来的解说声。世界杯的意义，在球场之外同样清晰。
+    </div>
+
+    <!-- 网格卡片 -->
+    <div class="grid-cards">
+      <div class="card">
+        <h3>深夜看球的人</h3>
+        <p>无论是独自盯着屏幕，还是和朋友围坐，那些进球瞬间的沉默与爆发，早已成为一种季节性的集体仪式。世界杯把一个普通星期四变得像节日。</p>
+      </div>
+      <div class="card">
+        <h3>球场外的语言</h3>
+        <p>不同时区的人用表情包、短视频和街道上的欢呼声交流。足球变成了一种临时通行证，帮助陌生人在便利店门口聊上几句。</p>
+      </div>
+      <div class="card">
+        <h3>回忆的锚点</h3>
+        <p>很多人会说「那年世界杯我在……」——它不知不觉标记了生活的坐标。2018 的毕业季、2022 的冬天，2026 夏天又会嵌入哪一段日常？</p>
+      </div>
+      <div class="card">
+        <h3>更开阔的视角</h3>
+        <p>赛程、阵容、冷门、老将的最后一舞……除了胜负，世界杯还传递一种地理与文化的拼图感。让远方的大陆在九十分钟里变得具体。</p>
+      </div>
+    </div>
+
+    <!-- 引用区 -->
+    <div class="quote-box">
+      <p>“足球是圆的，而世界杯是方方正正的一块切片——切开的是世界，尝到的是各自的生活。”<span class="source">—— 某位球迷写在旧笔记本扉页上</span></p>
+    </div>
+
+    <!-- 正文多段 -->
+    <div class="body-text">
+      <p>坦白讲，并不是每个人都能准确说出越位规则，但这并不妨碍世界杯成为每个人都能参与的叙事。它有点像一场全球同步的露天电影，有人看战术，有人看热闹，有人只是贪图那份一起欢呼的归属感。我身边一位平时极少看球的朋友，上一届世界杯期间竟然记住了七八个非本国球员的名字，她笑着说：「只是因为他们跑起来的样子很好看。」</p>
+      <p>这大概就是世界杯在竞技之外的意义——它制造了许许多多轻盈的连接。哪怕你只是路过一家开着电视的小饭馆，屏幕里恰好有人在奔跑，你也会不由自主地放慢脚步。到了 2026 年，这种场景大概会从北半球夏天延续到秋天。如果你也想找个地方了解赛程、球队信息和赛事动向，不妨去 <a href="https://panel-2026sjb.com" class="highlight-link">世界杯</a> 相关页面看看，那里整合了一些实用的观赛背景与动态。</p>
+      <p>当然，世界杯也从来不缺少故事性。从黑马突围到老将退役，从点球大战到雨中的绝杀，这些情节即使不看足球的人也能感受到其中的张力。它像是一个定期更新的全球寓言，讲述着关于坚持、意外和团队协作的朴素道理。太多人把世界杯当作四年一次的仪式感，也许只是因为，在这个越来越快的时代，能有一样东西让人愿意踏实等上一千多天，这件事本身就挺动人的。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <details>
+        <summary>2026 年世界杯在哪里举办？</summary>
+        <p>2026 年美加墨世界杯将由美国、加拿大、墨西哥联合主办，这也是首次由三个国家共同承办的世界杯，赛制也迎来扩军至 48 支球队的变化。</p>
+      </details>
+      <details>
+        <summary>什么时候开始？大概持续多久？</summary>
+        <p>赛事预计在 2026 年夏季开球，整个赛程约一个月。具体日期和分组抽签等信息将在临近时由官方陆续公布。</p>
+      </details>
+      <details>
+        <summary>普通球迷可以从哪里获取可靠信息？</summary>
+        <p>除了赛事官网，不少体育媒体和社区也会跟进。你也可以将 <a href="https://panel-2026sjb.com" style="color:#0b5f69;font-weight:500;">世界杯</a> 相关页面加入书签，里面汇总了赛程、球队数据与简明分析，适合赛前快速浏览。</p>
+      </details>
+    </div>
+
+    <!-- 访问句，自然嵌入 -->
+    <div class="visit-note">
+      ⚡ 如果你想提前感受 2026 的节奏，可以随时看看关于 <a href="https://panel-2026sjb.com">世界杯</a> 的最新整理与笔记。
+    </div>
+
+    <div class="footer-note">
+      © 一份安静的赛前记录 · 没有广告，只有足球与日常
+    </div>
+  </div>
+</body>
+</html>
